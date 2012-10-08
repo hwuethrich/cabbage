@@ -41,16 +41,6 @@
       (switch-to-buffer source-buffer)
       (pop-to-buffer other-buffer))))
 
-(defun ruby-interpolate ()
-  "In a double quoted string, interpolate."
-  (interactive)
-  (insert "#")
-  (when (and
-         (looking-back "\".*")
-         (looking-at ".*\""))
-    (insert "{}")
-    (backward-char 1)))
-
 (defun ruby-insert-end ()
   (interactive)
   (insert "end")
@@ -67,6 +57,7 @@
      (setq rspec-use-bundler-when-possible nil)
 
      (cabbage-vendor 'rvm)
+     (cabbage-vendor 'ruby-tools)
 
      ;; active the default ruby configured with rvm
      (when (fboundp 'rvm-use-default)
@@ -75,7 +66,6 @@
      (define-key ruby-mode-map (kbd "C-h r") 'yari)
      (define-key ruby-mode-map (kbd "C-c C-r g") 'rvm-open-gem)
      (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
-     (define-key ruby-mode-map (kbd "#") 'ruby-interpolate)
      (define-key ruby-mode-map (kbd "C-c , ,") 'cabbage-open-spec-other-buffer)
 
      (when cabbage-ruby-automatically-insert-end

@@ -119,3 +119,6 @@
 [submodule "vendor/ace-jump-mode"]
 	path = vendor/ace-jump-mode
 	url = https://github.com/winterTTr/ace-jump-mode.git
+[submodule "vendor/ruby-tools"]
+	path = vendor/ruby-tools
+	url = https://github.com/rejeep/ruby-tools.git
